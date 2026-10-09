@@ -1,0 +1,85 @@
+{
+  "name": "HongJingDa ́ndroid Gamepad",
+  "controls": {
+    "lb": {
+      "type": "button",
+      "index": 6
+    },
+    "rb": {
+      "type": "button",
+      "index": 7
+    },
+    "home": {
+      "type": "button",
+      "index": 4
+    },
+    "quit": {
+      "type": "button",
+      "index": 1
+    },
+    "lx": {
+      "type": "axis",
+      "index": 0,
+      "value": -0.694122314453125,
+      "rest": -0.003936767578125
+    },
+    "ly": {
+      "type": "axis",
+      "index": 1,
+      "value": -0.67059326171875,
+      "rest": -0.003936767578125
+    },
+    "rx": {
+      "type": "axis",
+      "index": 2,
+      "value": -0.67059326171875,
+      "rest": -0.003936767578125
+    },
+    "ry": {
+      "type": "axis",
+      "index": 3,
+      "value": -0.521575927734375,
+      "rest": -0.003936767578125
+    },
+    "lt": {
+      "type": "button",
+      "index": 8
+    },
+    "rt": {
+      "type": "button",
+      "index": 9
+    },
+    "up": {
+      "type": "hat",
+      "index": 0,
+      "value": [
+        0,
+        1
+      ]
+    },
+    "down": {
+      "type": "hat",
+      "index": 0,
+      "value": [
+        0,
+        -1
+      ]
+    },
+    "left": {
+      "type": "hat",
+      "index": 0,
+      "value": [
+        -1,
+        0
+      ]
+    },
+    "right": {
+      "type": "hat",
+      "index": 0,
+      "value": [
+        1,
+        0
+      ]
+    }
+  }
+}

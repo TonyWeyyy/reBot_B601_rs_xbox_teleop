@@ -1,0 +1,4 @@
+pygame>=2.5
+motorbridge
+pynput
+pyyaml

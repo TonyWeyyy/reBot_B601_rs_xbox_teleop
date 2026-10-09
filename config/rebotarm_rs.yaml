@@ -1,0 +1,60 @@
+# reBot B601-RS controller configuration. / reBot B601-RS 控制器配置。
+# Units: angles in degrees, speeds in deg/s, temperatures in °C.
+# 单位约定：角度为度，速度为度/秒，温度为 °C。
+
+can:
+  channel: can0     # CAN interface name / CAN 接口名
+  host_id: 0xFD     # Host ID / 主机 ID
+
+control:
+  # MIT command rate (Hz), NOT the arm motion speed.
+  # MIT 指令发送频率（Hz），不是机械臂运动速度。
+  control_hz: 200.0
+  # Temperature polling rate (Hz). / 温度读取频率（Hz）。
+  telemetry_hz: 2.0
+
+# Three-level temperature thresholds, must satisfy: alarm < return_zero < disconnect.
+# 三级温度保护阈值，必须满足：alarm < return_zero < disconnect。
+temperatures:
+  alarm_c: 110.0         # Warning, keep running / 温度报警，继续运行
+  return_zero_c: 125.0  # Stop, slowly return to zero, then disable / 停止运动，缓慢回零后失能
+  disconnect_c: 140.0   # Emergency disable immediately, no return-to-zero / 立即紧急失能，不再回零
+
+return_zero:
+  max_speed_deg_s: 30.0           # Peak speed for normal Esc/Ctrl+C/stop() return-to-zero / 普通 Esc/Ctrl+C/stop() 回零峰值速度
+  thermal_max_speed_deg_s: 30.0   # Peak speed for thermal-triggered return-to-zero / 高温触发后的回零峰值速度
+  min_time_s: 3.0                 # Minimum return-to-zero duration / 最短回零时间
+  settle_time_s: 0.30             # Hold time after reaching zero / 到达零点后保持时间
+
+# reBot B601-RS:
+# J1-J3: RS06, J4-J6: RS00, motor_id 7: gripper (RS00)
+# MIT 参数参考 reBotArm_control_py 的 RS 配置。
+motors:
+  - motor_id: 1
+    model: rs-06
+    kp: 50.0
+    kd: 3.0
+  - motor_id: 2
+    model: rs-06
+    kp: 150.0
+    kd: 10.0
+  - motor_id: 3
+    model: rs-06
+    kp: 150.0
+    kd: 10.0
+  - motor_id: 4
+    model: rs-00
+    kp: 50.0
+    kd: 5.0
+  - motor_id: 5
+    model: rs-00
+    kp: 50.0
+    kd: 4.0
+  - motor_id: 6
+    model: rs-00
+    kp: 50.0
+    kd: 4.0
+  - motor_id: 7
+    model: rs-00
+    kp: 50.0
+    kd: 4.0    # J7 gripper / 夹爪
